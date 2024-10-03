@@ -15,8 +15,8 @@ import sys
 
 def print_log_dir_times(logdir, args):
     first = True
-    totalElapsed = 0
-    total_max_memory = 0
+    totalElapsed = 0.0
+    total_max_memory = 0.0
     print(logdir)
 
     # Loop on all log files in the directory
@@ -39,26 +39,27 @@ def print_log_dir_times(logdir, args):
                     # Remove the units from the time portion
                     timePor = timePor.split("[h:]", 1)[0]
                     # Remove any fraction of a second
-                    timePor = timePor.split(".", 1)[0]
+                    # timePor = timePor.split(".", 1)[0]
+                    # Do not remove fraction
                     # Calculate elapsed time that has this format 'h:m:s'
-                    timeList = timePor.split(":")
+                    timeList = timePor.split(":")                    
                     if len(timeList) == 2:
                         # Only minutes and seconds are present
-                        elapsedTime = int(timeList[0]) * 60 + int(timeList[1])
+                        elapsedTime = float(timeList[0]) * 60 + float(timeList[1])
                     elif len(timeList) == 3:
                         # Hours, minutes, and seconds are present
                         elapsedTime = (
-                            int(timeList[0]) * 3600
-                            + int(timeList[1]) * 60
-                            + int(timeList[2])
+                            float(timeList[0]) * 3600.0
+                            + float(timeList[1]) * 60.0
+                            + float(timeList[2])
                         )
                     else:
                         print(
                             "Elapsed time not understood in", str(line), file=sys.stderr
                         )
                     # Find Peak Memory
-                    peak_memory = int(
-                        int(line.split("Peak memory: ")[1].split("KB")[0]) / 1024
+                    peak_memory = float(
+                        float(line.split("Peak memory: ")[1].split("KB")[0]) / 1024
                     )
 
             if not found:
@@ -67,12 +68,13 @@ def print_log_dir_times(logdir, args):
 
         # Print the name of the step and the corresponding elapsed time
         format_str = "%-25s %20s %14s"
+        format_num = "%-25s %20.2f %14.1f"
         if elapsedTime is not None and peak_memory is not None:
             if first and not args.noHeader:
                 print(format_str % ("Log", "Elapsed seconds", "Peak Memory/MB"))
                 first = False
             print(
-                format_str
+                format_num
                 % (
                     os.path.splitext(os.path.basename(str(f)))[0],
                     elapsedTime,
@@ -80,10 +82,10 @@ def print_log_dir_times(logdir, args):
                 )
             )
         totalElapsed += elapsedTime
-        total_max_memory = max(total_max_memory, int(peak_memory))
+        total_max_memory = max(total_max_memory, float(peak_memory))
 
     if totalElapsed != 0:
-        print(format_str % ("Total", totalElapsed, total_max_memory))
+        print(format_num % ("Total", totalElapsed, total_max_memory))
 
 
 def scan_logs(args):
