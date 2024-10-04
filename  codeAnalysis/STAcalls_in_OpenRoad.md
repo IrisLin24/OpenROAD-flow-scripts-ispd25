@@ -74,10 +74,14 @@ repair_design {*}$additional_args
 
 report metrics in GPL uses report_tns that calls ``vertexSlack()``
 
+### Detailed Place
+
+report metrics in DPL uses report_tns that calls ``vertexSlack()``
+
 ## CTS
 
-cts.tcl:66
-repair_timing_helper calls repair timing
+cts.tcl:71
+repair_timing_helper calls repair_timing
 
 ## GRT
 
@@ -87,6 +91,12 @@ repair antennas
 ## Finish
 
 report metrics
+
+## Conclusion
+
+To conclude, repair timing calls STA components to get all slacks
+Repair design
+EstimateRC uses corner informations in dbSTA
 
 ## At last
 
@@ -112,7 +122,9 @@ proc repair_design { args } {
   set verbose [info exists flags(-verbose)]
   rsz::repair_design_cmd $max_wire_length $slew_margin $cap_margin $buffer_gain $verbose
 }
+```
 
+```tcl
 proc repair_timing { args } {
   sta::parse_key_args "repair_timing" args \
     keys {-setup_margin -hold_margin -slack_margin \
@@ -198,7 +210,3 @@ proc repair_timing { args } {
   }
 }
 ```
-
-To conclude, repair timing calls STA to get all slacks
-Repair design
-EstimateRC uses corner informations in dbSTA
