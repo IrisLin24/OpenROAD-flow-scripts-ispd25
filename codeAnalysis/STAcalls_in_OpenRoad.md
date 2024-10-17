@@ -2,40 +2,14 @@
 
 ## Floorplan
 
-floorplan.tcl:114
+floorplan.tcl:106
 
 ```tcl
-if { [env_var_equals RESYNTH_TIMING_RECOVER 1] } {
-  repair_design
-  repair_timing
-  # pre restructure area/timing report (ideal clocks)
-  puts "Post synth-opt area"
-  report_design_area
-  report_worst_slack -min -digits 3
-  puts "Post synth-opt wns"
-  report_worst_slack -max -digits 3
-  puts "Post synth-opt tns"
-  report_tns -digits 3
-
-  write_verilog $::env(RESULTS_DIR)/2_pre_abc_timing.v
-
-  restructure -target timing -liberty_file $::env(DONT_USE_SC_LIB) \
-              -work_dir $::env(RESULTS_DIR)
-
-  write_verilog $::env(RESULTS_DIR)/2_post_abc_timing.v
-
-  # post restructure area/timing report (ideal clocks)
+if { [env_var_equals REMOVE_ABC_BUFFERS 1] } {
+  # remove buffers inserted by yosys/abc
   remove_buffers
-  repair_design
-  repair_timing
-
-  puts "Post restructure-opt wns"
-  report_worst_slack -max -digits 3
-  puts "Post restructure-opt tns"
-  report_tns -digits 3
-
-  # remove buffers inserted by optimization
-  remove_buffers
+} else {
+  repair_timing_helper 0
 }
 ```
 
@@ -210,3 +184,24 @@ proc repair_timing { args } {
   }
 }
 ```
+
+# Oct 11
+## 1. where to update timing && where to store ->vertexSlack()
+update timing:
+Search.cc: bookmarks
+vertexSlack: find in the table
+
+## 2. (50%) repair timing && save runtime
+tools/OpenROAD/src/rsz/src/Resizer.tcl:570
+repair timing settings
+
+## 3. while loop
+tools/OpenROAD/src/rsz/src/RepairSetup.cc:214/1687
+1. At every 1k iterations, fix_rate *2 
+2. At every 1k iterations, calc fix_rate. When fix_rate < threshold, terminate fixing.
+When terminateProgress() returns true, a flag is set to 1. 
+--This flag is used to determine whether the 
+
+## 4. update timing? in report_metrics
+tools/OpenROAD/src/sta/search/Search.tcl::693
+tools/OpenROAD/src/sta/search/Search.i::232
