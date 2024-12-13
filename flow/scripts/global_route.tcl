@@ -54,6 +54,16 @@ proc global_route_helper {} {
       report_metrics 5 "global route pre repair design"
     }
 
+    #Add
+    #estimate_parasitics -global_routing
+    #report_checks -path_delay min_max -format full_clock_expanded \
+    #  -fields {input_pin slew capacitance} -digits 3
+    #report_worst_slack -min -digits 3
+    #report_worst_slack -max -digits 3
+    #report_tns -digits 3
+    #report_check_types -max_slew -max_capacitance -max_fanout -violators -digits 3
+    #report_clock_skew -digits 3
+
     # Repair design using global route parasitics
     puts "Perform buffer insertion..."
     repair_design
@@ -72,7 +82,23 @@ proc global_route_helper {} {
     puts "Repair setup and hold violations..."
     estimate_parasitics -global_routing
 
+    report_checks -path_delay min_max -format full_clock_expanded \
+      -fields {input_pin slew capacitance} -digits 3
+    report_worst_slack -min -digits 3
+    report_worst_slack -max -digits 3
+    report_tns -digits 3
+
     repair_timing_helper
+
+    #Add
+    estimate_parasitics -global_routing
+    #report_checks -path_delay min_max -format full_clock_expanded \
+    #  -fields {input_pin slew capacitance} -digits 3
+    report_worst_slack -min -digits 3
+    report_worst_slack -max -digits 3
+    report_tns -digits 3
+    #report_check_types -max_slew -max_capacitance -max_fanout -violators -digits 3
+    #report_clock_skew -digits 3
 
     if { $::env(DETAILED_METRICS) } {
       report_metrics 5 "global route post repair timing"

@@ -186,22 +186,51 @@ proc repair_timing { args } {
 ```
 
 # Oct 11
+
 ## 1. where to update timing && where to store ->vertexSlack()
+
 update timing:
 Search.cc: bookmarks
-vertexSlack: find in the table
+findArrivals();
+findRequireds();
+
+use vertexSlack(vertex): to find slacks in the table
 
 ## 2. (50%) repair timing && save runtime
+
 tools/OpenROAD/src/rsz/src/Resizer.tcl:570
 repair timing settings
 
+in Makefile: config.mk
+
 ## 3. while loop
+
 tools/OpenROAD/src/rsz/src/RepairSetup.cc:214/1687
-1. At every 1k iterations, fix_rate *2 
-2. At every 1k iterations, calc fix_rate. When fix_rate < threshold, terminate fixing.
-When terminateProgress() returns true, a flag is set to 1. 
---This flag is used to determine whether the 
+
+1. At every 1k iterations, fix_rate_threshold *2
+2. At every 100 iterations, calc fix_rate. When fix_rate < threshold, terminate fixing.
+   When terminateProgress() returns true, a flag is set to 1.
 
 ## 4. update timing? in report_metrics
+
 tools/OpenROAD/src/sta/search/Search.tcl::693
 tools/OpenROAD/src/sta/search/Search.i::232
+
+## 5. skip nets?
+
+1. worst endpoint in log is got in worstSlack(), and has no relation with current fix.
+2. 
+
+![Failed](image/STAcalls_in_OpenRoad/1729593736589.png)
+3. No setup violation in ariane136
+
+
+Oct.25
+
+1. Check slack of all sorted endpoints (Do they varies?)
+2. fixed repairing endpoint numbers
+3. more cases
+4. Why? --endpoint selection
+
+feature: The worst endpoint is always repaired
+RepairSetup.cc:154

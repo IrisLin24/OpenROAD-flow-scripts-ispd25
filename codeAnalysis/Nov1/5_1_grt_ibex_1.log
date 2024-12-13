@@ -1,0 +1,721 @@
+OpenROAD bd42475189c7c2c6851df5fd060613f58d7c14b4 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+global_route -congestion_report_file ./reports/nangate45/ibex/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 887 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 173
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical       145935         65521          55.10%
+metal3     Horizontal     198950         92112          53.70%
+metal4     Vertical        92920         63734          31.41%
+metal5     Horizontal      92920         65778          29.21%
+metal6     Vertical        92920         65698          29.30%
+metal7     Horizontal      26565         11915          55.15%
+metal8     Vertical        26565         13224          50.22%
+metal9     Horizontal      13225         12996          1.73%
+metal10    Vertical        13225         12996          1.73%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 127050
+[INFO GRT-0198] Via related Steiner nodes: 3698
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 169676
+[INFO GRT-0112] Final usage 3D: 659758
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2           65521         37948           57.92%             0 /  0 /  0
+metal3           92112         49977           54.26%             0 /  0 /  0
+metal4           63734         26071           40.91%             0 /  0 /  0
+metal5           65778         19429           29.54%             0 /  0 /  0
+metal6           65698         12251           18.65%             0 /  0 /  0
+metal7           11915          2082           17.47%             0 /  0 /  0
+metal8           13224           810            6.13%             0 /  0 /  0
+metal9           12996          1745           13.43%             0 /  0 /  0
+metal10          12996           417            3.21%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           403974        150730           37.31%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 435132 um
+[INFO GRT-0014] Routed nets: 18880
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 640um.
+[INFO RSZ-0036] Found 2 capacitance violations.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          265634.4 u
+legalized HPWL         265634.4 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+repair_timing -verbose -repair_tns 1
+[INFO RSZ-0094] Found 772 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 7 out of 772 (1.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |    WNS   |   TNS      |  Viol  | Worst
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |            | Endpts | Endpt
+---------------------------------------------------------------------------------------------------
+        0 |       0 |       0 |        0 |      0 |     0 |   -0.332 |     -124.9 |    772 | instr_addr_o[31]
+        1 |       0 |       0 |        0 |      0 |     0 |   -0.332 |     -124.9 |    772 | instr_addr_o[31]
+iter:1, pass:1, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3201109e-10
+[INFO GRT-0009] rerouting 0 nets.
+        2 |       0 |       0 |        0 |      0 |     1 |   -0.321 |     -124.5 |    772 | instr_addr_o[31]
+iter:2, pass:2, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.206604e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_07052_
+[INFO GRT-0002] 2,_07354_
+        3 |       0 |       0 |        0 |      0 |     2 |   -0.326 |     -124.5 |    772 | instr_addr_o[31]
+iter:3, pass:3, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2594838e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_07052_
+[INFO GRT-0002] 2,_07354_
+[INFO GRT-0002] 3,_07355_
+        4 |       0 |       1 |        0 |      0 |     2 |   -0.325 |     -124.5 |    772 | instr_addr_o[31]
+iter:4, pass:4, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.248084e-10
+[INFO GRT-0009] rerouting 0 nets.
+        5 |       0 |       1 |        0 |      0 |     3 |   -0.318 |     -124.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:5, pass:5, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.175391e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_15682_
+[INFO GRT-0002] 2,_15683_
+        6 |       0 |       1 |        0 |      0 |     4 |   -0.317 |     -123.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:6, pass:6, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.1747316e-10
+[INFO GRT-0009] rerouting 0 nets.
+        7 |       0 |       1 |        0 |      0 |     5 |   -0.317 |     -121.0 |    772 | instr_addr_o[31]
+iter:7, pass:7, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.174072e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_10477_
+[INFO GRT-0002] 2,_10652_
+        8 |       0 |       1 |        0 |      0 |     6 |   -0.322 |     -121.1 |    772 | instr_addr_o[31]
+iter:8, pass:8, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2169267e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_10656_
+[INFO GRT-0002] 2,net160
+        9 |       0 |       1 |        2 |      0 |     6 |   -0.334 |     -121.5 |    772 | instr_addr_o[31]
+iter:9, pass:9, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.338061e-10
+[INFO GRT-0009] rerouting 0 nets.
+       10 |       0 |       1 |        2 |      0 |     7 |   -0.339 |     -121.5 |    772 | instr_addr_o[31]
+iter:10, pass:10, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3941006e-10
+[INFO GRT-0009] rerouting 0 nets.
+       11 |       0 |       1 |        2 |      0 |     8 |   -0.339 |     -121.5 |    772 | instr_addr_o[31]
+iter:11, pass:11, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3890157e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_03550_
+[INFO GRT-0002] 2,_03565_
+       12 |       0 |       1 |        2 |      0 |     9 |   -0.337 |     -121.4 |    772 | instr_addr_o[31]
+iter:12, pass:12, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3686232e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_03542_
+[INFO GRT-0002] 2,net172
+       13 |       0 |       1 |        4 |      0 |     9 |   -0.335 |     -121.4 |    772 | instr_addr_o[31]
+iter:13, pass:13, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.350158e-10
+[INFO GRT-0009] rerouting 0 nets.
+       14 |       0 |       2 |        4 |      0 |     9 |   -0.331 |     -121.3 |    772 | instr_addr_o[31]
+iter:14, pass:14, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.308951e-10
+[INFO GRT-0009] rerouting 0 nets.
+       15 |       1 |       2 |        4 |      0 |     9 |   -0.330 |     -121.3 |    772 | instr_addr_o[31]
+iter:15, pass:15, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.295495e-10
+[INFO GRT-0009] rerouting 0 nets.
+       16 |       1 |       2 |        4 |      0 |    10 |   -0.338 |     -121.6 |    772 | instr_addr_o[31]
+iter:16, pass:16, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.382905e-10
+[INFO GRT-0009] rerouting 0 nets.
+       17 |       1 |       2 |        4 |      0 |    11 |   -0.338 |     -121.6 |    772 | instr_addr_o[31]
+iter:17, pass:17, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.382732e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,net402
+[INFO GRT-0002] 2,_10477_
+[INFO GRT-0002] 3,net403
+       18 |       1 |       2 |        7 |      0 |    11 |   -0.331 |     -121.3 |    772 | instr_addr_o[31]
+iter:18, pass:18, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3118863e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,_07691_
+       19 |       1 |       3 |        7 |      0 |    11 |   -0.328 |     -121.3 |    772 | instr_addr_o[31]
+iter:19, pass:19, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2784286e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_03543_
+[INFO GRT-0002] 2,_10928_
+       20 |       1 |       3 |        7 |      0 |    12 |   -0.325 |     -121.3 |    772 | instr_addr_o[31]
+iter:20, pass:20, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2491543e-10
+[INFO GRT-0009] rerouting 0 nets.
+       21 |       1 |       3 |        7 |      0 |    13 |   -0.337 |     -121.4 |    772 | instr_addr_o[31]
+iter:21, pass:21, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3686853e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,id_stage_i.controller_i.instr_i\[1\]
+[INFO GRT-0002] 2,net438
+       22 |       1 |       3 |        9 |      0 |    13 |   -0.336 |     -121.4 |    772 | instr_addr_o[31]
+iter:22, pass:22, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3615177e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,id_stage_i.controller_i.instr_i\[0\]
+[INFO GRT-0002] 2,net439
+       23 |       1 |       3 |       11 |      0 |    13 |   -0.334 |     -121.3 |    772 | instr_addr_o[31]
+iter:23, pass:23, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.337275e-10
+[INFO GRT-0009] rerouting 0 nets.
+       24 |       1 |       3 |       11 |      0 |    14 |   -0.336 |     -121.4 |    772 | instr_addr_o[31]
+iter:24, pass:24, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.364813e-10
+[INFO GRT-0009] rerouting 0 nets.
+       25 |       1 |       4 |       11 |      0 |    14 |   -0.336 |     -121.3 |    772 | instr_addr_o[31]
+iter:25, pass:25, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.356544e-10
+[INFO GRT-0009] rerouting 0 nets.
+       26 |       1 |       4 |       11 |      0 |    15 |   -0.342 |     -121.6 |    772 | instr_addr_o[31]
+iter:26, pass:26, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.417966e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_10656_
+[INFO GRT-0002] 2,net440
+       27 |       1 |       4 |       13 |      0 |    15 |   -0.343 |     -121.6 |    772 | instr_addr_o[31]
+iter:27, pass:27, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.4252357e-10
+[INFO GRT-0009] rerouting 0 nets.
+       28 |       1 |       4 |       13 |      0 |    16 |   -0.347 |     -121.8 |    772 | instr_addr_o[31]
+iter:28, pass:28, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.4665448e-10
+[INFO GRT-0009] rerouting 0 nets.
+       29 |       1 |       4 |       13 |      0 |    17 |   -0.346 |     -121.8 |    772 | instr_addr_o[31]
+iter:29, pass:29, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.464431e-10
+[INFO GRT-0009] rerouting 0 nets.
+       30 |       1 |       5 |       13 |      0 |    17 |   -0.342 |     -121.6 |    772 | instr_addr_o[31]
+iter:30, pass:30, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.4227532e-10
+[INFO GRT-0009] rerouting 0 nets.
+       31 |       1 |       6 |       13 |      0 |    17 |   -0.339 |     -121.5 |    772 | instr_addr_o[31]
+iter:31, pass:31, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.390801e-10
+[INFO GRT-0009] rerouting 0 nets.
+       32 |       2 |       6 |       13 |      0 |    17 |   -0.327 |     -121.4 |    772 | instr_addr_o[31]
+iter:32, pass:32, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.271705e-10
+[INFO GRT-0009] rerouting 0 nets.
+       33 |       2 |       6 |       13 |      0 |    18 |   -0.327 |     -121.4 |    772 | instr_addr_o[31]
+iter:33, pass:33, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2712744e-10
+[INFO GRT-0009] rerouting 0 nets.
+       34 |       2 |       7 |       13 |      0 |    18 |   -0.325 |     -121.4 |    772 | instr_addr_o[31]
+iter:34, pass:34, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2488123e-10
+[INFO GRT-0009] rerouting 0 nets.
+       35 |       2 |       8 |       13 |      0 |    18 |   -0.321 |     -121.4 |    772 | instr_addr_o[31]
+iter:35, pass:35, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2119907e-10
+[INFO GRT-0009] rerouting 0 nets.
+       36 |       2 |       9 |       13 |      0 |    18 |   -0.324 |     -121.4 |    772 | instr_addr_o[31]
+iter:36, pass:36, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2369663e-10
+[INFO GRT-0009] rerouting 0 nets.
+       37 |       2 |       9 |       13 |      0 |    19 |   -0.325 |     -121.4 |    772 | instr_addr_o[31]
+iter:37, pass:37, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2458813e-10
+[INFO GRT-0009] rerouting 0 nets.
+       38 |       2 |      10 |       13 |      0 |    19 |   -0.324 |     -121.4 |    772 | instr_addr_o[31]
+iter:38, pass:38, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2446046e-10
+[INFO GRT-0009] rerouting 0 nets.
+       39 |       2 |      11 |       13 |      0 |    19 |   -0.323 |     -121.4 |    772 | instr_addr_o[31]
+iter:39, pass:39, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2310865e-10
+[INFO GRT-0009] rerouting 0 nets.
+       40 |       2 |      11 |       13 |      0 |    20 |   -0.326 |     -121.4 |    772 | instr_addr_o[31]
+iter:40, pass:40, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.2562486e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_12796_
+[INFO GRT-0002] 2,_12971_
+       41 |       2 |      11 |       13 |      0 |    21 |   -0.342 |     -121.5 |    772 | instr_addr_o[31]
+iter:41, pass:41, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.4208525e-10
+[INFO GRT-0009] rerouting 0 nets.
+       42 |       2 |      12 |       13 |      0 |    21 |   -0.339 |     -121.5 |    772 | instr_addr_o[31]
+iter:42, pass:42, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3911784e-10
+[INFO GRT-0009] rerouting 0 nets.
+       43 |       2 |      13 |       13 |      0 |    21 |   -0.340 |     -121.6 |    772 | instr_addr_o[31]
+iter:43, pass:43, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3972114e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,_10882_
+       44 |       2 |      14 |       13 |      0 |    21 |   -0.336 |     -121.5 |    772 | instr_addr_o[31]
+iter:44, pass:44, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.363929e-10
+[INFO GRT-0009] rerouting 0 nets.
+       45 |       2 |      14 |       13 |      0 |    22 |   -0.336 |     -121.4 |    772 | instr_addr_o[31]
+iter:45, pass:45, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3586312e-10
+[INFO GRT-0009] rerouting 0 nets.
+       46 |       2 |      14 |       13 |      0 |    23 |   -0.333 |     -121.4 |    772 | instr_addr_o[31]
+iter:46, pass:46, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3262948e-10
+[INFO GRT-0009] rerouting 0 nets.
+       47 |       2 |      14 |       13 |      0 |    24 |   -0.332 |     -121.4 |    772 | instr_addr_o[31]
+iter:47, pass:47, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.323255e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_12427_
+[INFO GRT-0002] 2,_12428_
+       48 |       2 |      14 |       13 |      0 |    25 |   -0.338 |     -121.5 |    772 | instr_addr_o[31]
+iter:48, pass:48, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3804382e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,net441
+[INFO GRT-0002] 2,_10529_
+       49 |       2 |      14 |       15 |      0 |    25 |   -0.333 |     -123.8 |    772 | instr_addr_o[31]
+iter:49, pass:49, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3280712e-10
+[INFO GRT-0009] rerouting 0 nets.
+       50 |       2 |      15 |       15 |      0 |    25 |   -0.331 |     -123.8 |    772 | instr_addr_o[31]
+iter:50, pass:50, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3131675e-10
+[INFO GRT-0009] rerouting 0 nets.
+       51 |       2 |      15 |       15 |      0 |    26 |   -0.331 |     -123.8 |    772 | instr_addr_o[31]
+iter:51, pass:51, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3083647e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_04189_
+[INFO GRT-0002] 2,_10895_
+[INFO GRT-0002] 3,net442
+       52 |       2 |      15 |       15 |      1 |    26 |   -0.333 |     -123.8 |    772 | instr_addr_o[31]
+iter:52, pass:52, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3285597e-10
+[INFO GRT-0009] rerouting 0 nets.
+       53 |       2 |      16 |       15 |      1 |    26 |   -0.335 |     -123.8 |    772 | instr_addr_o[31]
+iter:53, pass:53, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3463254e-10
+[INFO GRT-0009] rerouting 0 nets.
+       54 |       2 |      17 |       15 |      1 |    26 |   -0.333 |     -123.8 |    772 | instr_addr_o[31]
+iter:54, pass:54, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3268788e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,_04293_
+       55 |       2 |      18 |       15 |      1 |    26 |   -0.332 |     -123.8 |    772 | instr_addr_o[31]
+iter:55, pass:55, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3167669e-10
+[INFO GRT-0009] rerouting 0 nets.
+       56 |       2 |      19 |       15 |      1 |    26 |   -0.331 |     -123.8 |    772 | instr_addr_o[31]
+iter:56, pass:56, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.3102454e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,_15956_
+       57 |       2 |      20 |       15 |      1 |    26 |   -0.330 |     -123.8 |    772 | instr_addr_o[31]
+iter:57, pass:57, current fixing endpoint: instr_addr_o[31], endpoint slack:-3.300087e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,_12397_
+[INFO GRT-0009] rerouting 24 nets.
+[INFO GRT-0002] 1,_03542_
+[INFO GRT-0002] 2,_03543_
+[INFO GRT-0002] 3,_03549_
+[INFO GRT-0002] 4,_03550_
+[INFO GRT-0002] 5,_03565_
+[INFO GRT-0002] 6,_04189_
+[INFO GRT-0002] 7,_04293_
+[INFO GRT-0002] 8,_07691_
+[INFO GRT-0002] 9,_10318_
+[INFO GRT-0002] 10,_10477_
+[INFO GRT-0002] 11,_10529_
+[INFO GRT-0002] 12,_10652_
+[INFO GRT-0002] 13,_10656_
+[INFO GRT-0002] 14,_10882_
+[INFO GRT-0002] 15,_10895_
+[INFO GRT-0002] 16,_10928_
+[INFO GRT-0002] 17,_12397_
+[INFO GRT-0002] 18,_12427_
+[INFO GRT-0002] 19,_12428_
+[INFO GRT-0002] 20,_12796_
+[INFO GRT-0002] 21,_12971_
+[INFO GRT-0002] 22,_15956_
+[INFO GRT-0002] 23,id_stage_i.controller_i.instr_i\[0\]
+[INFO GRT-0002] 24,id_stage_i.controller_i.instr_i\[1\]
+       57 |       0 |       3 |        7 |      0 |     5 |   -0.318 |     -121.1 |    772 | instr_addr_o[31]
+       58 |       0 |       3 |        7 |      0 |     5 |   -0.318 |     -121.1 |    772 | instr_addr_o[31]
+iter:58, pass:1, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.1239833e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,_15699_
+       59 |       0 |       4 |        7 |      0 |     5 |   -0.318 |     -121.7 |    772 | instr_addr_o[31]
+iter:59, pass:2, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.1143887e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_15685_
+[INFO GRT-0002] 2,_15699_
+       60 |       0 |       4 |        7 |      0 |     6 |   -0.318 |     -122.0 |    772 | instr_addr_o[31]
+iter:60, pass:3, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.1285352e-10
+[INFO GRT-0009] rerouting 0 nets.
+       61 |       0 |       4 |        7 |      0 |     7 |   -0.318 |     -122.0 |    772 | instr_addr_o[31]
+iter:61, pass:4, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.1539482e-10
+[INFO GRT-0009] rerouting 0 nets.
+       62 |       0 |       4 |        7 |      0 |     8 |   -0.318 |     -122.1 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:62, pass:5, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.1799052e-10
+[INFO GRT-0009] rerouting 0 nets.
+       63 |       0 |       4 |        7 |      0 |     9 |   -0.318 |     -121.4 |    772 | instr_addr_o[31]
+iter:63, pass:6, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.1254266e-10
+[INFO GRT-0009] rerouting 0 nets.
+       64 |       0 |       4 |        7 |      0 |    10 |   -0.324 |     -124.3 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:64, pass:7, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.2390912e-10
+[INFO GRT-0009] rerouting 0 nets.
+       65 |       0 |       4 |        7 |      0 |    11 |   -0.327 |     -124.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:65, pass:8, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.273568e-10
+[INFO GRT-0009] rerouting 0 nets.
+       66 |       0 |       4 |        7 |      0 |    12 |   -0.333 |     -124.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:66, pass:9, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.327092e-10
+[INFO GRT-0009] rerouting 0 nets.
+       67 |       0 |       4 |        7 |      0 |    13 |   -0.331 |     -123.7 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:67, pass:10, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3107184e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_12340_
+[INFO GRT-0002] 2,_12787_
+       68 |       0 |       4 |        7 |      0 |    14 |   -0.330 |     -123.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:68, pass:11, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3014746e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_15699_
+[INFO GRT-0002] 2,net443
+       69 |       0 |       4 |        9 |      0 |    14 |   -0.330 |     -129.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:69, pass:12, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3005398e-10
+[INFO GRT-0009] rerouting 0 nets.
+       70 |       0 |       4 |        9 |      0 |    15 |   -0.330 |     -129.3 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:70, pass:13, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.2951775e-10
+[INFO GRT-0009] rerouting 0 nets.
+       71 |       0 |       4 |        9 |      0 |    16 |   -0.334 |     -131.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:71, pass:14, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.343834e-10
+[INFO GRT-0009] rerouting 0 nets.
+       72 |       0 |       4 |        9 |      0 |    17 |   -0.333 |     -131.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:72, pass:15, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3342373e-10
+[INFO GRT-0009] rerouting 0 nets.
+       73 |       0 |       5 |        9 |      0 |    17 |   -0.331 |     -131.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:73, pass:16, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3127345e-10
+[INFO GRT-0009] rerouting 0 nets.
+       74 |       0 |       5 |        9 |      0 |    18 |   -0.336 |     -132.3 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:74, pass:17, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.355205e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_14420_
+[INFO GRT-0002] 2,_14422_
+       75 |       0 |       5 |        9 |      0 |    19 |   -0.341 |     -133.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:75, pass:18, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.4091752e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_14383_
+[INFO GRT-0002] 2,_14384_
+       76 |       0 |       5 |        9 |      0 |    20 |   -0.341 |     -133.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:76, pass:19, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.4114578e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_14417_
+[INFO GRT-0002] 2,_14418_
+       77 |       0 |       5 |        9 |      0 |    21 |   -0.332 |     -131.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:77, pass:20, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3185654e-10
+[INFO GRT-0009] rerouting 0 nets.
+       78 |       0 |       5 |        9 |      0 |    22 |   -0.337 |     -131.7 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:78, pass:21, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3748226e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,net447
+       79 |       0 |       6 |        9 |      0 |    22 |   -0.339 |     -133.3 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:79, pass:22, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.390206e-10
+[INFO GRT-0009] rerouting 0 nets.
+       80 |       0 |       6 |        9 |      0 |    23 |   -0.337 |     -132.9 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:80, pass:23, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.370686e-10
+[INFO GRT-0009] rerouting 0 nets.
+       81 |       0 |       6 |        9 |      0 |    24 |   -0.337 |     -132.8 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:81, pass:24, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3682102e-10
+[INFO GRT-0009] rerouting 0 nets.
+       82 |       0 |       6 |        9 |      0 |    25 |   -0.337 |     -132.7 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:82, pass:25, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3674974e-10
+[INFO GRT-0009] rerouting 0 nets.
+       83 |       0 |       6 |        9 |      0 |    26 |   -0.336 |     -132.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:83, pass:26, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3622993e-10
+[INFO GRT-0009] rerouting 0 nets.
+       84 |       0 |       6 |        9 |      0 |    27 |   -0.337 |     -132.9 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:84, pass:27, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3737857e-10
+[INFO GRT-0009] rerouting 0 nets.
+       85 |       0 |       6 |        9 |      0 |    28 |   -0.339 |     -133.2 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:85, pass:28, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.387366e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_14393_
+[INFO GRT-0002] 2,_14450_
+       86 |       0 |       6 |        9 |      0 |    29 |   -0.336 |     -132.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:86, pass:29, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.362195e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_03877_
+[INFO GRT-0002] 2,net444
+       87 |       0 |       6 |       11 |      0 |    29 |   -0.336 |     -132.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:87, pass:30, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3575365e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_15665_
+[INFO GRT-0002] 2,_15666_
+       88 |       0 |       6 |       11 |      0 |    30 |   -0.338 |     -133.0 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:88, pass:31, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3756686e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_14258_
+[INFO GRT-0002] 2,_14260_
+       89 |       0 |       6 |       11 |      0 |    31 |   -0.332 |     -131.3 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:89, pass:32, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3247027e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_15722_
+[INFO GRT-0002] 2,_15723_
+       90 |       0 |       6 |       11 |      0 |    32 |   -0.332 |     -131.2 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:90, pass:33, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3169223e-10
+[INFO GRT-0009] rerouting 0 nets.
+       91 |       0 |       7 |       11 |      0 |    32 |   -0.332 |     -131.1 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:91, pass:34, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3152414e-10
+[INFO GRT-0009] rerouting 0 nets.
+       92 |       0 |       8 |       11 |      0 |    32 |   -0.329 |     -130.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:92, pass:35, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.2878766e-10
+[INFO GRT-0009] rerouting 0 nets.
+       93 |       0 |       8 |       11 |      0 |    33 |   -0.333 |     -131.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:93, pass:36, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.3308778e-10
+[INFO GRT-0009] rerouting 0 nets.
+       94 |       0 |       8 |       11 |      0 |    34 |   -0.328 |     -130.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:94, pass:37, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.2830205e-10
+[INFO GRT-0009] rerouting 0 nets.
+       95 |       0 |       8 |       11 |      0 |    35 |   -0.329 |     -130.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:95, pass:38, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.2903325e-10
+[INFO GRT-0009] rerouting 0 nets.
+       96 |       0 |       8 |       11 |      0 |    36 |   -0.329 |     -130.3 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:96, pass:39, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.2866865e-10
+[INFO GRT-0009] rerouting 0 nets.
+       97 |       0 |       8 |       11 |      0 |    37 |   -0.329 |     -130.1 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:97, pass:40, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.285865e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04686_
+[INFO GRT-0002] 2,_15706_
+       98 |       0 |       8 |       11 |      0 |    38 |   -0.329 |     -130.1 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:98, pass:41, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.2877145e-10
+[INFO GRT-0009] rerouting 0 nets.
+       99 |       0 |       8 |       11 |      0 |    39 |   -0.340 |     -132.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:99, pass:42, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D, endpoint slack:-3.404672e-10
+[INFO GRT-0009] rerouting 22 nets.
+[INFO GRT-0002] 1,_03877_
+[INFO GRT-0002] 2,_04686_
+[INFO GRT-0002] 3,_12340_
+[INFO GRT-0002] 4,_12787_
+[INFO GRT-0002] 5,_14258_
+[INFO GRT-0002] 6,_14260_
+[INFO GRT-0002] 7,_14383_
+[INFO GRT-0002] 8,_14384_
+[INFO GRT-0002] 9,_14393_
+[INFO GRT-0002] 10,_14417_
+[INFO GRT-0002] 11,_14418_
+[INFO GRT-0002] 12,_14420_
+[INFO GRT-0002] 13,_14422_
+[INFO GRT-0002] 14,_14450_
+[INFO GRT-0002] 15,_15665_
+[INFO GRT-0002] 16,_15666_
+[INFO GRT-0002] 17,_15685_
+[INFO GRT-0002] 18,_15699_
+[INFO GRT-0002] 19,_15706_
+[INFO GRT-0002] 20,_15722_
+[INFO GRT-0002] 21,_15723_
+[INFO GRT-0002] 22,net447
+       99 |       0 |       4 |        9 |      0 |     5 |   -0.318 |     -121.7 |    772 | instr_addr_o[31]
+      100 |       0 |       4 |        9 |      0 |     5 |   -0.318 |     -121.7 |    772 | instr_addr_o[31]
+iter:100, pass:1, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.1142866e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_12072_
+[INFO GRT-0002] 2,_12534_
+[INFO GRT-0002] 3,net445
+      101 |       0 |       4 |        9 |      1 |     5 |   -0.318 |     -124.5 |    772 | instr_addr_o[31]
+iter:101, pass:2, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.156171e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_12072_
+[INFO GRT-0002] 2,_12521_
+[INFO GRT-0002] 3,net446
+      102 |       0 |       4 |        9 |      2 |     5 |   -0.318 |     -125.2 |    772 | instr_addr_o[31]
+iter:102, pass:3, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.1651903e-10
+[INFO GRT-0009] rerouting 1 nets.
+[INFO GRT-0002] 1,net446
+      103 |       0 |       5 |        9 |      2 |     5 |   -0.320 |     -127.3 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:103, pass:4, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.1966385e-10
+[INFO GRT-0009] rerouting 0 nets.
+      104 |       0 |       5 |        9 |      2 |     6 |   -0.331 |     -133.0 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:104, pass:5, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.3049607e-10
+[INFO GRT-0009] rerouting 0 nets.
+      105 |       0 |       5 |        9 |      2 |     7 |   -0.335 |     -135.2 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:105, pass:6, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.347036e-10
+[INFO GRT-0009] rerouting 0 nets.
+      106 |       0 |       5 |        9 |      2 |     8 |   -0.346 |     -141.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:106, pass:7, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.4588e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_14312_
+[INFO GRT-0002] 2,_14365_
+      107 |       0 |       5 |        9 |      2 |     9 |   -0.337 |     -138.0 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:107, pass:8, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.3715497e-10
+[INFO GRT-0009] rerouting 0 nets.
+      108 |       0 |       5 |        9 |      2 |    10 |   -0.346 |     -142.7 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:108, pass:9, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.4605163e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_14329_
+[INFO GRT-0002] 2,_14330_
+      109 |       0 |       5 |        9 |      2 |    11 |   -0.356 |     -148.2 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:109, pass:10, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.5578096e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_13072_
+[INFO GRT-0002] 2,net458
+      110 |       0 |       5 |       11 |      2 |    11 |   -0.350 |     -144.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:110, pass:11, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.4950087e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_14329_
+      111 |       0 |       6 |       11 |      2 |    11 |   -0.348 |     -144.0 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:111, pass:12, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[30\]$_DFFE_PN0P_/D, endpoint slack:-3.4840308e-10
+[INFO GRT-0009] rerouting 9 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_12072_
+[INFO GRT-0002] 3,_12521_
+[INFO GRT-0002] 4,_12534_
+[INFO GRT-0002] 5,_13072_
+[INFO GRT-0002] 6,_14312_
+[INFO GRT-0002] 7,_14329_
+[INFO GRT-0002] 8,_14330_
+[INFO GRT-0002] 9,_14365_
+      111 |       0 |       4 |       10 |      0 |     5 |   -0.318 |     -124.6 |    772 | instr_addr_o[31]
+      112 |       0 |       4 |       10 |      0 |     5 |   -0.318 |     -124.6 |    772 | instr_addr_o[31]
+iter:112, pass:1, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[926\]$_DFFE_PN0P_/D, endpoint slack:-3.1580893e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_12072_
+[INFO GRT-0002] 2,_12534_
+[INFO GRT-0002] 3,net459
+      113 |       0 |       4 |       10 |      1 |     5 |   -0.320 |     -126.8 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:113, pass:2, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[926\]$_DFFE_PN0P_/D, endpoint slack:-3.1905678e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_12072_
+[INFO GRT-0002] 2,_12521_
+[INFO GRT-0002] 3,net460
+      114 |       0 |       4 |       10 |      2 |     5 |   -0.321 |     -127.5 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:114, pass:3, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[926\]$_DFFE_PN0P_/D, endpoint slack:-3.201701e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_14329_
+      115 |       0 |       5 |       10 |      2 |     5 |   -0.321 |     -127.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:115, pass:4, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[926\]$_DFFE_PN0P_/D, endpoint slack:-3.203311e-10
+[INFO GRT-0009] rerouting 5 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_12072_
+[INFO GRT-0002] 3,_12521_
+[INFO GRT-0002] 4,_12534_
+[INFO GRT-0002] 5,_14329_
+      115 |       0 |       4 |       10 |      0 |     5 |   -0.323 |     -128.8 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+      116 |       0 |       4 |       10 |      0 |     5 |   -0.323 |     -128.8 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:116, pass:1, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[574\]$_DFFE_PN0P_/D, endpoint slack:-3.2187564e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_12072_
+[INFO GRT-0002] 2,_12521_
+[INFO GRT-0002] 3,net461
+      117 |       0 |       4 |       10 |      1 |     5 |   -0.320 |     -126.7 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:117, pass:2, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[574\]$_DFFE_PN0P_/D, endpoint slack:-3.1871084e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_12072_
+[INFO GRT-0002] 2,_12534_
+[INFO GRT-0002] 3,net462
+      118 |       0 |       4 |       10 |      2 |     5 |   -0.321 |     -127.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:118, pass:3, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[574\]$_DFFE_PN0P_/D, endpoint slack:-3.1981995e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_14329_
+      119 |       0 |       5 |       10 |      2 |     5 |   -0.321 |     -127.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:119, pass:4, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[574\]$_DFFE_PN0P_/D, endpoint slack:-3.1998093e-10
+[INFO GRT-0009] rerouting 4 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_12072_
+[INFO GRT-0002] 3,_12534_
+[INFO GRT-0002] 4,_14329_
+      119 |       0 |       4 |       10 |      1 |     5 |   -0.322 |     -128.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+      120 |       0 |       4 |       10 |      1 |     5 |   -0.322 |     -128.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:120, pass:1, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[542\]$_DFFE_PN0P_/D, endpoint slack:-3.207088e-10
+[INFO GRT-0009] rerouting 3 nets.
+[INFO GRT-0002] 1,_12072_
+[INFO GRT-0002] 2,_12534_
+[INFO GRT-0002] 3,net463
+      121 |       0 |       4 |       10 |      2 |     5 |   -0.321 |     -127.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:121, pass:2, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[542\]$_DFFE_PN0P_/D, endpoint slack:-3.190299e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_14329_
+      122 |       0 |       5 |       10 |      2 |     5 |   -0.321 |     -127.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:122, pass:3, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[542\]$_DFFE_PN0P_/D, endpoint slack:-3.191909e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_14329_
+      122 |       0 |       4 |       10 |      2 |     5 |   -0.321 |     -127.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+      123 |       0 |       4 |       10 |      2 |     5 |   -0.321 |     -127.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:123, pass:1, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[126\]$_DFFE_PN0P_/D, endpoint slack:-3.1894754e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_14329_
+      124 |       0 |       5 |       10 |      2 |     5 |   -0.321 |     -127.6 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+iter:124, pass:2, current fixing endpoint: gen_regfile_ff.register_file_i.rf_reg_q\[126\]$_DFFE_PN0P_/D, endpoint slack:-3.190943e-10
+[INFO GRT-0009] rerouting 2 nets.
+[INFO GRT-0002] 1,_04136_
+[INFO GRT-0002] 2,_14329_
+      124 |       0 |       4 |       10 |      2 |     5 |   -0.321 |     -127.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+    final |       0 |       4 |       10 |      2 |     5 |   -0.321 |     -127.4 |    772 | gen_regfile_ff.register_file_i.rf_reg_q\[510\]$_DFFE_PN0P_/D
+---------------------------------------------------------------------------------------------------
+[INFO RSZ-0041] Resized 4 instances.
+[INFO RSZ-0043] Swapped pins on 5 instances.
+[INFO RSZ-0049] Cloned 2 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement         38.1 u
+average displacement        0.0 u
+max displacement            5.0 u
+original HPWL          265673.7 u
+legalized HPWL         265714.2 u
+delta HPWL                    0 %
+
+[INFO GRT-0009] rerouting 47 nets.
+[INFO GRT-0002] 1,_01110_
+[INFO GRT-0002] 2,_01112_
+[INFO GRT-0002] 3,_01115_
+[INFO GRT-0002] 4,_01117_
+[INFO GRT-0002] 5,_02635_
+[INFO GRT-0002] 6,_03472_
+[INFO GRT-0002] 7,_03473_
+[INFO GRT-0002] 8,_03475_
+[INFO GRT-0002] 9,_03519_
+[INFO GRT-0002] 10,_03522_
+[INFO GRT-0002] 11,_03523_
+[INFO GRT-0002] 12,_03524_
+[INFO GRT-0002] 13,_03525_
+[INFO GRT-0002] 14,_03526_
+[INFO GRT-0002] 15,_03527_
+[INFO GRT-0002] 16,_04245_
+[INFO GRT-0002] 17,_04680_
+[INFO GRT-0002] 18,_04685_
+[INFO GRT-0002] 19,_04686_
+[INFO GRT-0002] 20,_04687_
+[INFO GRT-0002] 21,_05085_
+[INFO GRT-0002] 22,_07051_
+[INFO GRT-0002] 23,_07062_
+[INFO GRT-0002] 24,_07064_
+[INFO GRT-0002] 25,_07065_
+[INFO GRT-0002] 26,_07160_
+[INFO GRT-0002] 27,_07161_
+[INFO GRT-0002] 28,_09547_
+[INFO GRT-0002] 29,_09610_
+[INFO GRT-0002] 30,_09622_
+[INFO GRT-0002] 31,_10465_
+[INFO GRT-0002] 32,net331
+[INFO GRT-0002] 33,_11858_
+[INFO GRT-0002] 34,_12072_
+[INFO GRT-0002] 35,_12386_
+[INFO GRT-0002] 36,_12387_
+[INFO GRT-0002] 37,_12528_
+[INFO GRT-0002] 38,_12536_
+[INFO GRT-0002] 39,_12539_
+[INFO GRT-0002] 40,_15685_
+[INFO GRT-0002] 41,_15699_
+[INFO GRT-0002] 42,gen_regfile_ff.register_file_i.rf_reg\[62\]
+[INFO GRT-0002] 43,if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fetch_addr_q\[10\]
+[INFO GRT-0002] 44,clknet_level_3_1_32127_clk_i
+[INFO GRT-0002] 45,net450
+[INFO GRT-0002] 46,net461
+[INFO GRT-0002] 47,net463
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 35510 u^2 62% utilization.
+[INFO FLW-0007] clock core_clock period 2.200000
+[INFO FLW-0008] Clock core_clock period 2.396
+[INFO FLW-0009] Clock core_clock slack -0.322
+[INFO FLW-0011] Path endpoint count 4640
+Elapsed time: 1:35.46[h:]min:sec. CPU time: user 139.19 sys 0.23 (146%). Peak memory: 631324KB.

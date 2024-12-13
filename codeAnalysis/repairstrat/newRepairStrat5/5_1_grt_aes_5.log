@@ -1,0 +1,1523 @@
+OpenROAD bd42475189c7c2c6851df5fd060613f58d7c14b4 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+global_route -congestion_report_file ./reports/nangate45/aes/base/congestion.rpt -congestion_iterations 30 -congestion_report_iter_step 5 -verbose
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.7975  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.7975  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.5900  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.5900  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 107 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 20
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical       155663         69963          55.05%
+metal3     Horizontal     211205         97812          53.69%
+metal4     Vertical        99134         67921          31.49%
+metal5     Horizontal      98641         69740          29.30%
+metal6     Vertical        99134         70094          29.29%
+metal7     Horizontal      28200         12724          54.88%
+metal8     Vertical        28443         14160          50.22%
+metal9     Horizontal      14041         13923          0.84%
+metal10    Vertical        14162         13924          1.68%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 130836
+[INFO GRT-0198] Via related Steiner nodes: 4917
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 181689
+[INFO GRT-0112] Final usage 3D: 684812
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2           69963         32917           47.05%             0 /  0 /  0
+metal3           97812         43607           44.58%             0 /  0 /  0
+metal4           67921         23593           34.74%             0 /  0 /  0
+metal5           69740         19403           27.82%             0 /  0 /  0
+metal6           70094         13833           19.73%             0 /  0 /  0
+metal7           12724          2721           21.38%             0 /  0 /  0
+metal8           14160           835            5.90%             0 /  0 /  0
+metal9           13923          2591           18.61%             0 /  0 /  0
+metal10          13924           245            1.76%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           430261        139745           32.48%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 413109 um
+[INFO GRT-0014] Routed nets: 16355
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 640um.
+Placement Analysis
+---------------------------------
+total displacement          0.0 u
+average displacement        0.0 u
+max displacement            0.0 u
+original HPWL          241297.5 u
+legalized HPWL         241297.5 u
+delta HPWL                    0 %
+
+Repair setup and hold violations...
+repair_timing -verbose -repair_tns 100
+[INFO RSZ-0094] Found 157 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 157 out of 157 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |    WNS   |   TNS      |  Viol  | Worst
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |            | Endpts | Endpt
+---------------------------------------------------------------------------------------------------
+        0 |       0 |       0 |        0 |      0 |     0 |   -0.134 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+        1 |       0 |       0 |        0 |      0 |     0 |   -0.134 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:1, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.3372325e-10
+        2 |       0 |       0 |        0 |      0 |     1 |   -0.123 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:2, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.2322288e-10
+        3 |       0 |       0 |        2 |      0 |     1 |   -0.121 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:3, pass:3, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.2113033e-10
+        4 |       0 |       0 |        2 |      0 |     2 |   -0.127 |       -8.4 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:4, pass:4, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.268915e-10
+        5 |       0 |       1 |        2 |      0 |     2 |   -0.126 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:5, pass:5, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.2576229e-10
+        6 |       0 |       1 |        2 |      0 |     3 |   -0.139 |       -8.4 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:6, pass:6, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.3874268e-10
+        7 |       0 |       1 |        2 |      0 |     4 |   -0.140 |       -8.4 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:7, pass:7, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.3959445e-10
+        8 |       0 |       1 |        2 |      0 |     5 |   -0.141 |       -8.4 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:8, pass:8, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.405629e-10
+        9 |       0 |       1 |        2 |      0 |     6 |   -0.142 |       -8.4 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:9, pass:9, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.4182244e-10
+       10 |       0 |       1 |        5 |      0 |     6 |   -0.139 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:10, pass:10, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.387801e-10
+       11 |       0 |       1 |        5 |      0 |     7 |   -0.138 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:11, pass:11, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.3753565e-10
+       12 |       0 |       1 |        5 |      0 |     8 |   -0.129 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:12, pass:12, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.2928614e-10
+       13 |       1 |       1 |        5 |      0 |     8 |   -0.126 |       -8.4 |    157 | sa02_sr\[5\]$_DFF_P_/D
+iter:13, pass:13, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.2610724e-10
+       14 |       1 |       2 |        5 |      0 |     8 |   -0.123 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:14, pass:14, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.2277113e-10
+       15 |       1 |       3 |        5 |      0 |     8 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:15, pass:15, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1725532e-10
+       16 |       1 |       3 |        5 |      1 |     8 |   -0.120 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:16, pass:16, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1991208e-10
+       17 |       1 |       3 |        5 |      2 |     8 |   -0.118 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:17, pass:17, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1786216e-10
+       17 |       1 |       3 |        5 |      0 |     8 |   -0.120 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+       18 |       1 |       3 |        5 |      0 |     8 |   -0.120 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:18, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1378454e-10
+       19 |       1 |       3 |        5 |      0 |     9 |   -0.120 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:19, pass:2, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1934576e-10
+       20 |       1 |       3 |        5 |      0 |    10 |   -0.121 |       -8.4 |    157 | sa32_sr\[3\]$_DFF_P_/D
+iter:20, pass:3, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.2104628e-10
+       21 |       1 |       3 |        7 |      0 |    10 |   -0.120 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:21, pass:4, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1768142e-10
+       22 |       1 |       3 |        7 |      0 |    11 |   -0.120 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:22, pass:5, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1934598e-10
+       23 |       1 |       3 |        7 |      0 |    12 |   -0.121 |       -8.3 |    157 | sa32_sr\[3\]$_DFF_P_/D
+iter:23, pass:6, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.2103984e-10
+       24 |       1 |       3 |        7 |      0 |    13 |   -0.120 |       -8.3 |    157 | sa32_sr\[3\]$_DFF_P_/D
+iter:24, pass:7, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.198297e-10
+       25 |       1 |       3 |        7 |      0 |    14 |   -0.127 |       -8.3 |    157 | sa32_sr\[3\]$_DFF_P_/D
+iter:25, pass:8, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.2719015e-10
+       25 |       1 |       3 |        6 |      0 |     8 |   -0.120 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+       26 |       1 |       3 |        6 |      0 |     8 |   -0.120 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:26, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1938761e-10
+       27 |       1 |       3 |        6 |      1 |     8 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:27, pass:2, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1432766e-10
+       27 |       1 |       3 |        6 |      1 |     8 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+       28 |       1 |       3 |        6 |      1 |     8 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:28, pass:1, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1069101e-10
+       29 |       1 |       3 |        6 |      1 |     9 |   -0.116 |       -8.3 |    157 | sa13_sr\[3\]$_DFF_P_/D
+iter:29, pass:2, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1632961e-10
+       30 |       1 |       3 |        6 |      1 |    10 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:30, pass:3, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0794843e-10
+       31 |       1 |       3 |        6 |      1 |    11 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:31, pass:4, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.031385e-10
+       32 |       1 |       3 |        6 |      1 |    12 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:32, pass:5, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0438128e-10
+       33 |       1 |       3 |        8 |      1 |    12 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:33, pass:6, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0042045e-10
+       34 |       1 |       3 |        8 |      1 |    13 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:34, pass:7, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.05830456e-10
+       35 |       1 |       4 |        8 |      1 |    13 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:35, pass:8, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0305856e-10
+       36 |       1 |       4 |        8 |      1 |    14 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:36, pass:9, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0189083e-10
+       37 |       1 |       4 |        8 |      1 |    15 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:37, pass:10, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0023504e-10
+       38 |       1 |       5 |        8 |      1 |    15 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:38, pass:11, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-9.980872e-11
+       39 |       1 |       6 |        8 |      1 |    15 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:39, pass:12, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-9.420442e-11
+       40 |       1 |       6 |        8 |      1 |    16 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:40, pass:13, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-9.245593e-11
+       41 |       2 |       6 |        8 |      1 |    16 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:41, pass:14, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-8.002432e-11
+       42 |       2 |       7 |        8 |      1 |    16 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:42, pass:15, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-7.7781004e-11
+       43 |       2 |       7 |        8 |      2 |    16 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:43, pass:16, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-8.257006e-11
+       44 |       2 |       7 |       10 |      2 |    16 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:44, pass:17, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-7.36623e-11
+       45 |       2 |       7 |       10 |      3 |    16 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:45, pass:18, current fixing endpoint: sa13_sr\[3\]$_DFF_P_/D, endpoint slack:-7.703138e-11
+       45 |       2 |       7 |       10 |      2 |    16 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+       46 |       2 |       7 |       10 |      2 |    16 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:46, pass:1, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-1.1029633e-10
+       47 |       2 |       7 |       10 |      2 |    17 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:47, pass:2, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-1.0430157e-10
+       48 |       2 |       7 |       10 |      2 |    18 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:48, pass:3, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-9.160084e-11
+       49 |       2 |       7 |       10 |      2 |    19 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:49, pass:4, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-8.928425e-11
+       50 |       3 |       7 |       10 |      2 |    19 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:50, pass:5, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-8.914125e-11
+       51 |       3 |       7 |       10 |      2 |    20 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:51, pass:6, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-8.771861e-11
+       52 |       3 |       7 |       10 |      2 |    21 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:52, pass:7, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-8.935097e-11
+       53 |       3 |       8 |       10 |      2 |    21 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:53, pass:8, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-9.036638e-11
+       54 |       3 |       9 |       10 |      2 |    21 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:54, pass:9, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-9.080248e-11
+       55 |       3 |       9 |       10 |      2 |    22 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:55, pass:10, current fixing endpoint: u0.u2.d\[2\]$_DFF_P_/D, endpoint slack:-9.516654e-11
+       55 |       3 |       7 |       10 |      2 |    20 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+       56 |       3 |       7 |       10 |      2 |    20 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:56, pass:1, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.0842516e-10
+       57 |       3 |       7 |       10 |      2 |    21 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:57, pass:2, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.1419976e-10
+       58 |       3 |       8 |       10 |      2 |    21 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:58, pass:3, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.1021739e-10
+       59 |       3 |       9 |       10 |      2 |    21 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:59, pass:4, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.0919221e-10
+       60 |       3 |      10 |       10 |      2 |    21 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:60, pass:5, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.02994946e-10
+       61 |       3 |      10 |       10 |      2 |    22 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:61, pass:6, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.1034795e-10
+       62 |       3 |      10 |       10 |      2 |    23 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:62, pass:7, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.843193e-11
+       63 |       3 |      10 |       10 |      2 |    24 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:63, pass:8, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.6668895e-11
+       64 |       3 |      11 |       10 |      2 |    24 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:64, pass:9, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.8414166e-11
+       65 |       3 |      11 |       10 |      2 |    25 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:65, pass:10, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.05845e-10
+       66 |       3 |      11 |       10 |      3 |    25 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:66, pass:11, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.0284529e-10
+       67 |       3 |      11 |       10 |      3 |    26 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:67, pass:12, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-1.0083301e-10
+       68 |       3 |      11 |       12 |      3 |    26 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:68, pass:13, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.5287445e-11
+       69 |       3 |      11 |       12 |      3 |    27 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:69, pass:14, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.4964925e-11
+       70 |       3 |      12 |       12 |      3 |    27 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:70, pass:15, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.2772456e-11
+       71 |       3 |      12 |       12 |      3 |    28 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:71, pass:16, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.3730024e-11
+       72 |       3 |      13 |       12 |      3 |    28 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:72, pass:17, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.033008e-11
+       73 |       3 |      14 |       12 |      3 |    28 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:73, pass:18, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.931278e-11
+       74 |       3 |      14 |       12 |      3 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:74, pass:19, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.195089e-11
+       75 |       3 |      14 |       12 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:75, pass:20, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-9.926415e-11
+       76 |       3 |      14 |       14 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:76, pass:21, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.905143e-11
+       77 |       3 |      15 |       14 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:77, pass:22, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.545298e-11
+       78 |       3 |      16 |       14 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:78, pass:23, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.8556495e-11
+       79 |       3 |      17 |       14 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:79, pass:24, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.848833e-11
+       80 |       3 |      18 |       14 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:80, pass:25, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.461043e-11
+       81 |       3 |      19 |       14 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:81, pass:26, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.429035e-11
+       82 |       3 |      20 |       14 |      4 |    29 |   -0.117 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:82, pass:27, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.379708e-11
+       83 |       3 |      20 |       14 |      5 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:83, pass:28, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.300449e-11
+       84 |       3 |      21 |       14 |      5 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:84, pass:29, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.1161855e-11
+       85 |       3 |      22 |       14 |      5 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:85, pass:30, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-8.101442e-11
+       86 |       3 |      23 |       14 |      5 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:86, pass:31, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-7.2884365e-11
+       87 |       3 |      24 |       14 |      5 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:87, pass:32, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-7.073431e-11
+       88 |       3 |      25 |       14 |      5 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:88, pass:33, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-6.829337e-11
+       89 |       3 |      26 |       14 |      5 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:89, pass:34, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-6.680678e-11
+       90 |       3 |      26 |       14 |      6 |    29 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:90, pass:35, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-6.922374e-11
+       91 |       3 |      26 |       14 |      6 |    30 |   -0.117 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:91, pass:36, current fixing endpoint: sa02_sr\[5\]$_DFF_P_/D, endpoint slack:-7.0084605e-11
+       91 |       3 |      14 |       13 |      3 |    28 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+       92 |       3 |      14 |       13 |      3 |    28 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:92, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.04732e-10
+       93 |       3 |      14 |       13 |      3 |    29 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:93, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.10680465e-10
+       94 |       3 |      14 |       15 |      3 |    29 |   -0.115 |       -8.4 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:94, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.02805986e-10
+       95 |       3 |      14 |       17 |      3 |    29 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:95, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.610723e-11
+       96 |       3 |      14 |       17 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:96, pass:5, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.4765085e-11
+       97 |       3 |      14 |       17 |      3 |    31 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:97, pass:6, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.68875e-11
+       98 |       3 |      14 |       17 |      3 |    32 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:98, pass:7, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.8545616e-11
+       99 |       3 |      14 |       17 |      3 |    33 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:99, pass:8, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.736345e-11
+      100 |       3 |      14 |       17 |      3 |    34 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:100, pass:9, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.0396384e-10
+      101 |       3 |      14 |       19 |      3 |    34 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:101, pass:10, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.0325374e-10
+      102 |       3 |      15 |       19 |      3 |    34 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:102, pass:11, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.04774855e-10
+      103 |       3 |      16 |       19 |      3 |    34 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:103, pass:12, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.0646195e-10
+      104 |       3 |      17 |       19 |      3 |    34 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:104, pass:13, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.0654144e-10
+      105 |       3 |      17 |       19 |      4 |    34 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:105, pass:14, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.0657586e-10
+      106 |       3 |      17 |       19 |      4 |    35 |   -0.115 |       -8.5 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:106, pass:15, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.0985768e-10
+      106 |       3 |      14 |       18 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 7
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      107 |       3 |      14 |       18 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:107, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1468615e-10
+      108 |       3 |      14 |       18 |      4 |    30 |   -0.118 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:108, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      109 |       3 |      15 |       18 |      4 |    30 |   -0.118 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:109, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      110 |       3 |      16 |       18 |      4 |    30 |   -0.118 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:110, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      111 |       3 |      17 |       18 |      4 |    30 |   -0.118 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:111, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      112 |       3 |      17 |       18 |      4 |    31 |   -0.118 |       -8.3 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:112, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      113 |       3 |      17 |       22 |      4 |    31 |   -0.118 |       -8.6 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:113, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0214729e-10
+      114 |       3 |      17 |       22 |      4 |    32 |   -0.118 |       -8.6 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:114, pass:8, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-9.8056674e-11
+      115 |       3 |      17 |       22 |      4 |    33 |   -0.118 |       -8.6 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:115, pass:9, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.03189346e-10
+      116 |       3 |      18 |       22 |      4 |    33 |   -0.118 |       -8.6 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:116, pass:10, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0138601e-10
+      117 |       3 |      19 |       22 |      4 |    33 |   -0.118 |       -8.6 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:117, pass:11, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0062029e-10
+      118 |       3 |      20 |       22 |      4 |    33 |   -0.118 |       -8.6 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:118, pass:12, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.00650044e-10
+      118 |       3 |      16 |       19 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      119 |       3 |      16 |       19 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:119, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      119 |       3 |      16 |       19 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      120 |       3 |      16 |       19 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:120, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1369872e-10
+      121 |       3 |      16 |       21 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:121, pass:2, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      121 |       3 |      16 |       21 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      122 |       3 |      16 |       21 |      3 |    30 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:122, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.1262802e-10
+      123 |       3 |      16 |       21 |      3 |    31 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:123, pass:2, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0551826e-10
+      124 |       3 |      16 |       21 |      3 |    32 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:124, pass:3, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.1305756e-10
+      125 |       3 |      16 |       21 |      3 |    33 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:125, pass:4, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.09263265e-10
+      126 |       3 |      16 |       21 |      3 |    34 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:126, pass:5, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.11363585e-10
+      127 |       3 |      16 |       21 |      3 |    35 |   -0.117 |       -8.3 |    157 | sa11_sr\[4\]$_DFF_P_/D
+iter:127, pass:6, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.1707124e-10
+      128 |       3 |      17 |       21 |      3 |    35 |   -0.116 |       -8.3 |    157 | sa11_sr\[4\]$_DFF_P_/D
+iter:128, pass:7, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.16162635e-10
+      129 |       3 |      18 |       21 |      3 |    35 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:129, pass:8, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.12181375e-10
+      130 |       3 |      19 |       21 |      3 |    35 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:130, pass:9, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.1473322e-10
+      131 |       3 |      19 |       21 |      3 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:131, pass:10, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.12799436e-10
+      131 |       3 |      17 |       21 |      3 |    31 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      132 |       3 |      17 |       21 |      3 |    31 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:132, pass:1, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-1.0326884e-10
+      133 |       3 |      17 |       21 |      3 |    32 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:133, pass:2, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-1.0275081e-10
+      134 |       3 |      17 |       21 |      3 |    33 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:134, pass:3, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-9.75412e-11
+      135 |       3 |      17 |       23 |      3 |    33 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:135, pass:4, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-9.701584e-11
+      136 |       3 |      17 |       23 |      3 |    34 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:136, pass:5, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-9.959e-11
+      137 |       3 |      17 |       23 |      3 |    35 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:137, pass:6, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-9.795831e-11
+      138 |       3 |      17 |       23 |      3 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:138, pass:7, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-9.6663344e-11
+      139 |       3 |      17 |       23 |      4 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:139, pass:8, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-9.411949e-11
+      140 |       3 |      17 |       23 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:140, pass:9, current fixing endpoint: u0.u1.d\[6\]$_DFF_P_/D, endpoint slack:-9.316958e-11
+      140 |       3 |      17 |       23 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      141 |       3 |      17 |       23 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:141, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.9400266e-11
+      142 |       3 |      17 |       23 |      5 |    37 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:142, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.006456e-10
+      143 |       3 |      17 |       23 |      5 |    38 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:143, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.490253e-11
+      144 |       3 |      17 |       25 |      5 |    38 |   -0.116 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:144, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.150644e-10
+      145 |       3 |      17 |       25 |      5 |    39 |   -0.123 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:145, pass:5, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.2296308e-10
+      146 |       3 |      18 |       25 |      5 |    39 |   -0.120 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:146, pass:6, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1995194e-10
+      147 |       3 |      18 |       25 |      5 |    40 |   -0.119 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:147, pass:7, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1891521e-10
+      148 |       4 |      18 |       25 |      5 |    40 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:148, pass:8, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.05099374e-10
+      149 |       4 |      18 |       25 |      6 |    40 |   -0.116 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:149, pass:9, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1119072e-10
+      150 |       4 |      18 |       27 |      6 |    40 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:150, pass:10, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.88557e-11
+      151 |       4 |      18 |       27 |      6 |    41 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:151, pass:11, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0108214e-10
+      152 |       4 |      19 |       27 |      6 |    41 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:152, pass:12, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.01103015e-10
+      153 |       4 |      20 |       27 |      6 |    41 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:153, pass:13, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.0273982e-10
+      154 |       4 |      21 |       27 |      6 |    41 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:154, pass:14, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.88456e-11
+      155 |       4 |      21 |       27 |      6 |    42 |   -0.116 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:155, pass:15, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.699219e-11
+      155 |       3 |      18 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      156 |       3 |      18 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:156, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.60827e-11
+      157 |       3 |      19 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:157, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.770418e-11
+      158 |       3 |      20 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:158, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.0063095e-10
+      159 |       3 |      21 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:159, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-1.00485176e-10
+      160 |       3 |      21 |       25 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:160, pass:5, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      160 |       3 |      18 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 14
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      161 |       3 |      18 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:161, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      162 |       3 |      18 |       25 |      6 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:162, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      163 |       3 |      19 |       25 |      6 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:163, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      164 |       3 |      20 |       25 |      6 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:164, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      165 |       3 |      21 |       25 |      6 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:165, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      166 |       3 |      22 |       25 |      6 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:166, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      167 |       3 |      22 |       25 |      6 |    37 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:167, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      167 |       3 |      19 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      168 |       3 |      19 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:168, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1432777e-10
+      168 |       3 |      19 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      169 |       3 |      19 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:169, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      169 |       3 |      19 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      170 |       3 |      19 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:170, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0551826e-10
+      171 |       3 |      20 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:171, pass:2, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0464285e-10
+      172 |       3 |      21 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:172, pass:3, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0720813e-10
+      173 |       3 |      22 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:173, pass:4, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      173 |       3 |      22 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      174 |       3 |      22 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:174, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.00550346e-10
+      175 |       3 |      23 |       25 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:175, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      176 |       3 |      23 |       27 |      5 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:176, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      177 |       3 |      24 |       27 |      5 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:177, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      178 |       3 |      25 |       27 |      5 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:178, pass:5, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      178 |       3 |      23 |       26 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      179 |       3 |      23 |       26 |      5 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:179, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.862733e-11
+      180 |       3 |      23 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:180, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      181 |       3 |      24 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:181, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      182 |       3 |      25 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:182, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      183 |       3 |      26 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:183, pass:5, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      183 |       3 |      23 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      184 |       3 |      23 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:184, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.5898955e-11
+      185 |       3 |      23 |       26 |      6 |    37 |   -0.115 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:185, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.619605e-11
+      186 |       3 |      23 |       26 |      6 |    38 |   -0.115 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:186, pass:3, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-1.13211995e-10
+      187 |       3 |      23 |       26 |      6 |    39 |   -0.120 |       -8.2 |    157 | sa11_sr\[3\]$_DFF_P_/D
+iter:187, pass:4, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-1.2032997e-10
+      188 |       3 |      23 |       26 |      6 |    40 |   -0.122 |       -8.2 |    157 | sa11_sr\[3\]$_DFF_P_/D
+iter:188, pass:5, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-1.2232892e-10
+      189 |       3 |      24 |       26 |      6 |    40 |   -0.123 |       -8.2 |    157 | sa11_sr\[3\]$_DFF_P_/D
+iter:189, pass:6, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-1.2303158e-10
+      189 |       3 |      23 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 21
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      190 |       3 |      23 |       26 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:190, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1468615e-10
+      191 |       3 |      23 |       26 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:191, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      192 |       3 |      24 |       26 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:192, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      193 |       3 |      25 |       26 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:193, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      194 |       3 |      26 |       26 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:194, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      195 |       3 |      27 |       26 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:195, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      196 |       3 |      27 |       30 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:196, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      196 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      197 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:197, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      197 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      198 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:198, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      198 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      199 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:199, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      199 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      200 |       3 |      24 |       27 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:200, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      201 |       3 |      24 |       29 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:201, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      202 |       3 |      25 |       29 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:202, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      203 |       3 |      26 |       29 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:203, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      203 |       3 |      24 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      204 |       3 |      24 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:204, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      205 |       3 |      25 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:205, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      205 |       3 |      24 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      206 |       3 |      24 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:206, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      207 |       3 |      25 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:207, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      208 |       3 |      26 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:208, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      209 |       3 |      27 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:209, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      209 |       3 |      24 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 28
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      210 |       3 |      24 |       28 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:210, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      211 |       3 |      24 |       28 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:211, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      212 |       3 |      25 |       28 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:212, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      213 |       3 |      26 |       28 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:213, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      214 |       3 |      27 |       28 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:214, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      215 |       3 |      28 |       28 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:215, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      216 |       3 |      28 |       32 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:216, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      216 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      217 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:217, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      217 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      218 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:218, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      218 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      219 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:219, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      219 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      220 |       3 |      25 |       29 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:220, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      221 |       3 |      25 |       31 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:221, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      222 |       3 |      26 |       31 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:222, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      223 |       3 |      27 |       31 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:223, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      223 |       3 |      25 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      224 |       3 |      25 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:224, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      225 |       3 |      26 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:225, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      225 |       3 |      25 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      226 |       3 |      25 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:226, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      227 |       3 |      26 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:227, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      228 |       3 |      27 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:228, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      229 |       3 |      28 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:229, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      229 |       3 |      25 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 35
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      230 |       3 |      25 |       30 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:230, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      231 |       3 |      25 |       30 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:231, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      232 |       3 |      26 |       30 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:232, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      233 |       3 |      27 |       30 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:233, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      234 |       3 |      28 |       30 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:234, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      235 |       3 |      29 |       30 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:235, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      236 |       3 |      29 |       34 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:236, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      236 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      237 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:237, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      237 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      238 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:238, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      238 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      239 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:239, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      239 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      240 |       3 |      26 |       31 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:240, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      241 |       3 |      26 |       33 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:241, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      242 |       3 |      27 |       33 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:242, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      243 |       3 |      28 |       33 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:243, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      243 |       3 |      26 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      244 |       3 |      26 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:244, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      245 |       3 |      27 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:245, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      245 |       3 |      26 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      246 |       3 |      26 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:246, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      247 |       3 |      27 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:247, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      248 |       3 |      28 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:248, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      249 |       3 |      29 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:249, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      249 |       3 |      26 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 42
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      250 |       3 |      26 |       32 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:250, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      251 |       3 |      26 |       32 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:251, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      252 |       3 |      27 |       32 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:252, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      253 |       3 |      28 |       32 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:253, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      254 |       3 |      29 |       32 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:254, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      255 |       3 |      30 |       32 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:255, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      256 |       3 |      30 |       36 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:256, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      256 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      257 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:257, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      257 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      258 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:258, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      258 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      259 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:259, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      259 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      260 |       3 |      27 |       33 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:260, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      261 |       3 |      27 |       35 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:261, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      262 |       3 |      28 |       35 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:262, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      263 |       3 |      29 |       35 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:263, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      263 |       3 |      27 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      264 |       3 |      27 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:264, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      265 |       3 |      28 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:265, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      265 |       3 |      27 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      266 |       3 |      27 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:266, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      267 |       3 |      28 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:267, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      268 |       3 |      29 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:268, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      269 |       3 |      30 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:269, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      269 |       3 |      27 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 49
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      270 |       3 |      27 |       34 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:270, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      271 |       3 |      27 |       34 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:271, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      272 |       3 |      28 |       34 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:272, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      273 |       3 |      29 |       34 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:273, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      274 |       3 |      30 |       34 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:274, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      275 |       3 |      31 |       34 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:275, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      276 |       3 |      31 |       38 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:276, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      276 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      277 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:277, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      277 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      278 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:278, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      278 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      279 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:279, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      279 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      280 |       3 |      28 |       35 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:280, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      281 |       3 |      28 |       37 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:281, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      282 |       3 |      29 |       37 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:282, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      283 |       3 |      30 |       37 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:283, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      283 |       3 |      28 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      284 |       3 |      28 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:284, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      285 |       3 |      29 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:285, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      285 |       3 |      28 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      286 |       3 |      28 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:286, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      287 |       3 |      29 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:287, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      288 |       3 |      30 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:288, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      289 |       3 |      31 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:289, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      289 |       3 |      28 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 56
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      290 |       3 |      28 |       36 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:290, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      291 |       3 |      28 |       36 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:291, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      292 |       3 |      29 |       36 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:292, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      293 |       3 |      30 |       36 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:293, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      294 |       3 |      31 |       36 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:294, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      295 |       3 |      32 |       36 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:295, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      296 |       3 |      32 |       40 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:296, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      296 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      297 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:297, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      297 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      298 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:298, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      298 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      299 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:299, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      299 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      300 |       3 |      29 |       37 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:300, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      301 |       3 |      29 |       39 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:301, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      302 |       3 |      30 |       39 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:302, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      303 |       3 |      31 |       39 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:303, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      303 |       3 |      29 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      304 |       3 |      29 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:304, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      305 |       3 |      30 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:305, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      305 |       3 |      29 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      306 |       3 |      29 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:306, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      307 |       3 |      30 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:307, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      308 |       3 |      31 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:308, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      309 |       3 |      32 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:309, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      309 |       3 |      29 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 63
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      310 |       3 |      29 |       38 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:310, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      311 |       3 |      29 |       38 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:311, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      312 |       3 |      30 |       38 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:312, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      313 |       3 |      31 |       38 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:313, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      314 |       3 |      32 |       38 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:314, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      315 |       3 |      33 |       38 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:315, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      316 |       3 |      33 |       42 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:316, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      316 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      317 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:317, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      317 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      318 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:318, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      318 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      319 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:319, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      319 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      320 |       3 |      30 |       39 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:320, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      321 |       3 |      30 |       41 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:321, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      322 |       3 |      31 |       41 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:322, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      323 |       3 |      32 |       41 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:323, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      323 |       3 |      30 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      324 |       3 |      30 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:324, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      325 |       3 |      31 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:325, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      325 |       3 |      30 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      326 |       3 |      30 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:326, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      327 |       3 |      31 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:327, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      328 |       3 |      32 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:328, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      329 |       3 |      33 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:329, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      329 |       3 |      30 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 70
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      330 |       3 |      30 |       40 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:330, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      331 |       3 |      30 |       40 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:331, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      332 |       3 |      31 |       40 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:332, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      333 |       3 |      32 |       40 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:333, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      334 |       3 |      33 |       40 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:334, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      335 |       3 |      34 |       40 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:335, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      336 |       3 |      34 |       44 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:336, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      336 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      337 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:337, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      337 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      338 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:338, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      338 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      339 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:339, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      339 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      340 |       3 |      31 |       41 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:340, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      341 |       3 |      31 |       43 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:341, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      342 |       3 |      32 |       43 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:342, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      343 |       3 |      33 |       43 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:343, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      343 |       3 |      31 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      344 |       3 |      31 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:344, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      345 |       3 |      32 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:345, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      345 |       3 |      31 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      346 |       3 |      31 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:346, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      347 |       3 |      32 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:347, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      348 |       3 |      33 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:348, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      349 |       3 |      34 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:349, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      349 |       3 |      31 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 77
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      350 |       3 |      31 |       42 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:350, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      351 |       3 |      31 |       42 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:351, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      352 |       3 |      32 |       42 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:352, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      353 |       3 |      33 |       42 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:353, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      354 |       3 |      34 |       42 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:354, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      355 |       3 |      35 |       42 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:355, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      356 |       3 |      35 |       46 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:356, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      356 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      357 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:357, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      357 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      358 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:358, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      358 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      359 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:359, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      359 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      360 |       3 |      32 |       43 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:360, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      361 |       3 |      32 |       45 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:361, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      362 |       3 |      33 |       45 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:362, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      363 |       3 |      34 |       45 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:363, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      363 |       3 |      32 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      364 |       3 |      32 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:364, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      365 |       3 |      33 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:365, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      365 |       3 |      32 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      366 |       3 |      32 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:366, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      367 |       3 |      33 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:367, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      368 |       3 |      34 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:368, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      369 |       3 |      35 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:369, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      369 |       3 |      32 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 84
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      370 |       3 |      32 |       44 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:370, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      371 |       3 |      32 |       44 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:371, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      372 |       3 |      33 |       44 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:372, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      373 |       3 |      34 |       44 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:373, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      374 |       3 |      35 |       44 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:374, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      375 |       3 |      36 |       44 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:375, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      376 |       3 |      36 |       48 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:376, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      376 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      377 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:377, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      377 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      378 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:378, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      378 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      379 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:379, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      379 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      380 |       3 |      33 |       45 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:380, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      381 |       3 |      33 |       47 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:381, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      382 |       3 |      34 |       47 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:382, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      383 |       3 |      35 |       47 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:383, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      383 |       3 |      33 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      384 |       3 |      33 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:384, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      385 |       3 |      34 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:385, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      385 |       3 |      33 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      386 |       3 |      33 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:386, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      387 |       3 |      34 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:387, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      388 |       3 |      35 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:388, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      389 |       3 |      36 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:389, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      389 |       3 |      33 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 91
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      390 |       3 |      33 |       46 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:390, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      391 |       3 |      33 |       46 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:391, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      392 |       3 |      34 |       46 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:392, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      393 |       3 |      35 |       46 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:393, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      394 |       3 |      36 |       46 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:394, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      395 |       3 |      37 |       46 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:395, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      396 |       3 |      37 |       50 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:396, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      396 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      397 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:397, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      397 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      398 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:398, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      398 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      399 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:399, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      399 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      400 |       3 |      34 |       47 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:400, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      401 |       3 |      34 |       49 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:401, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      402 |       3 |      35 |       49 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:402, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      403 |       3 |      36 |       49 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:403, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      403 |       3 |      34 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      404 |       3 |      34 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:404, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      405 |       3 |      35 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:405, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      405 |       3 |      34 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      406 |       3 |      34 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:406, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      407 |       3 |      35 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:407, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      408 |       3 |      36 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:408, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      409 |       3 |      37 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:409, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      409 |       3 |      34 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 98
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      410 |       3 |      34 |       48 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:410, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      411 |       3 |      34 |       48 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:411, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      412 |       3 |      35 |       48 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:412, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      413 |       3 |      36 |       48 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:413, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      414 |       3 |      37 |       48 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:414, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      415 |       3 |      38 |       48 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:415, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      416 |       3 |      38 |       52 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:416, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      416 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      417 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:417, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      417 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      418 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:418, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      418 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      419 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:419, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      419 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      420 |       3 |      35 |       49 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:420, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      421 |       3 |      35 |       51 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:421, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      422 |       3 |      36 |       51 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:422, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      423 |       3 |      37 |       51 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:423, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      423 |       3 |      35 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      424 |       3 |      35 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:424, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      425 |       3 |      36 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:425, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      425 |       3 |      35 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      426 |       3 |      35 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:426, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      427 |       3 |      36 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:427, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      428 |       3 |      37 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:428, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      429 |       3 |      38 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:429, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      429 |       3 |      35 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 105
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      430 |       3 |      35 |       50 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:430, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      431 |       3 |      35 |       50 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:431, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      432 |       3 |      36 |       50 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:432, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      433 |       3 |      37 |       50 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:433, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      434 |       3 |      38 |       50 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:434, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      435 |       3 |      39 |       50 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:435, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      436 |       3 |      39 |       54 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:436, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      436 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      437 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:437, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      437 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      438 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:438, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      438 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      439 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:439, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      439 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      440 |       3 |      36 |       51 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:440, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      441 |       3 |      36 |       53 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:441, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      442 |       3 |      37 |       53 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:442, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      443 |       3 |      38 |       53 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:443, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      443 |       3 |      36 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      444 |       3 |      36 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:444, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      445 |       3 |      37 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:445, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      445 |       3 |      36 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      446 |       3 |      36 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:446, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      447 |       3 |      37 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:447, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      448 |       3 |      38 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:448, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      449 |       3 |      39 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:449, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      449 |       3 |      36 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 112
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      450 |       3 |      36 |       52 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:450, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      451 |       3 |      36 |       52 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:451, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      452 |       3 |      37 |       52 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:452, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      453 |       3 |      38 |       52 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:453, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      454 |       3 |      39 |       52 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:454, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      455 |       3 |      40 |       52 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:455, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      456 |       3 |      40 |       56 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:456, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      456 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      457 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:457, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      457 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      458 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:458, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      458 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      459 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:459, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      459 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      460 |       3 |      37 |       53 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:460, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      461 |       3 |      37 |       55 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:461, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      462 |       3 |      38 |       55 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:462, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      463 |       3 |      39 |       55 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:463, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      463 |       3 |      37 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      464 |       3 |      37 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:464, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      465 |       3 |      38 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:465, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      465 |       3 |      37 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      466 |       3 |      37 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:466, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      467 |       3 |      38 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:467, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      468 |       3 |      39 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:468, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      469 |       3 |      40 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:469, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      469 |       3 |      37 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 119
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      470 |       3 |      37 |       54 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:470, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      471 |       3 |      37 |       54 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:471, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      472 |       3 |      38 |       54 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:472, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      473 |       3 |      39 |       54 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:473, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      474 |       3 |      40 |       54 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:474, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      475 |       3 |      41 |       54 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:475, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      476 |       3 |      41 |       58 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:476, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      476 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      477 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:477, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      477 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      478 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:478, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      478 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      479 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:479, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      479 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      480 |       3 |      38 |       55 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:480, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      481 |       3 |      38 |       57 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:481, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      482 |       3 |      39 |       57 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:482, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      483 |       3 |      40 |       57 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:483, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      483 |       3 |      38 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      484 |       3 |      38 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:484, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      485 |       3 |      39 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:485, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      485 |       3 |      38 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      486 |       3 |      38 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:486, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      487 |       3 |      39 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:487, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      488 |       3 |      40 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:488, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      489 |       3 |      41 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:489, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      489 |       3 |      38 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 126
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      490 |       3 |      38 |       56 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:490, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      491 |       3 |      38 |       56 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:491, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      492 |       3 |      39 |       56 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:492, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      493 |       3 |      40 |       56 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:493, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      494 |       3 |      41 |       56 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:494, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      495 |       3 |      42 |       56 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:495, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      496 |       3 |      42 |       60 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:496, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      496 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      497 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:497, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      497 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      498 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:498, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      498 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      499 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:499, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      499 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      500 |       3 |      39 |       57 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:500, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      501 |       3 |      39 |       59 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:501, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      502 |       3 |      40 |       59 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:502, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      503 |       3 |      41 |       59 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:503, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      503 |       3 |      39 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      504 |       3 |      39 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:504, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      505 |       3 |      40 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:505, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      505 |       3 |      39 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      506 |       3 |      39 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:506, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      507 |       3 |      40 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:507, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      508 |       3 |      41 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:508, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      509 |       3 |      42 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:509, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      509 |       3 |      39 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 133
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      510 |       3 |      39 |       58 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:510, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      511 |       3 |      39 |       58 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:511, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      512 |       3 |      40 |       58 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:512, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      513 |       3 |      41 |       58 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:513, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      514 |       3 |      42 |       58 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:514, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      515 |       3 |      43 |       58 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:515, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      516 |       3 |      43 |       62 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:516, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      516 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      517 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:517, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      517 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      518 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:518, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      518 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      519 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:519, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      519 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      520 |       3 |      40 |       59 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:520, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      521 |       3 |      40 |       61 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:521, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      522 |       3 |      41 |       61 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:522, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      523 |       3 |      42 |       61 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:523, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      523 |       3 |      40 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      524 |       3 |      40 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:524, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      525 |       3 |      41 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:525, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      525 |       3 |      40 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      526 |       3 |      40 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:526, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      527 |       3 |      41 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:527, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      528 |       3 |      42 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:528, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      529 |       3 |      43 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:529, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      529 |       3 |      40 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 140
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      530 |       3 |      40 |       60 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:530, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      531 |       3 |      40 |       60 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:531, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      532 |       3 |      41 |       60 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:532, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      533 |       3 |      42 |       60 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:533, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      534 |       3 |      43 |       60 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:534, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      535 |       3 |      44 |       60 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:535, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      536 |       3 |      44 |       64 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:536, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      536 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      537 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:537, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      537 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      538 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:538, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      538 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      539 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:539, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      539 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      540 |       3 |      41 |       61 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:540, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      541 |       3 |      41 |       63 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:541, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      542 |       3 |      42 |       63 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:542, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      543 |       3 |      43 |       63 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:543, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      543 |       3 |      41 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      544 |       3 |      41 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:544, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      545 |       3 |      42 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:545, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      545 |       3 |      41 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      546 |       3 |      41 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:546, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      547 |       3 |      42 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:547, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      548 |       3 |      43 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:548, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      549 |       3 |      44 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:549, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      549 |       3 |      41 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 147
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      550 |       3 |      41 |       62 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:550, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      551 |       3 |      41 |       62 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:551, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      552 |       3 |      42 |       62 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:552, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      553 |       3 |      43 |       62 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:553, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      554 |       3 |      44 |       62 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:554, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      555 |       3 |      45 |       62 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:555, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      556 |       3 |      45 |       66 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:556, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      556 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      557 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:557, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      557 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      558 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:558, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      558 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      559 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:559, pass:1, current fixing endpoint: sa11_sr\[4\]$_DFF_P_/D, endpoint slack:-1.0354373e-10
+      559 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      560 |       3 |      42 |       63 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:560, pass:1, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-9.8734354e-11
+      561 |       3 |      42 |       65 |      6 |    36 |   -0.116 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:561, pass:2, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1604884e-10
+      562 |       3 |      43 |       65 |      6 |    36 |   -0.117 |       -8.3 |    157 | sa20_sr\[3\]$_DFF_P_/D
+iter:562, pass:3, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1747603e-10
+      563 |       3 |      44 |       65 |      6 |    36 |   -0.115 |       -8.3 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:563, pass:4, current fixing endpoint: sa20_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1340762e-10
+      563 |       3 |      42 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      564 |       3 |      42 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:564, pass:1, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.6371466e-11
+      565 |       3 |      43 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:565, pass:2, current fixing endpoint: sa11_sr\[3\]$_DFF_P_/D, endpoint slack:-9.704337e-11
+      565 |       3 |      42 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      566 |       3 |      42 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:566, pass:1, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.47995e-11
+      567 |       3 |      43 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:567, pass:2, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.642098e-11
+      568 |       3 |      44 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:568, pass:3, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.934775e-11
+      569 |       3 |      45 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:569, pass:4, current fixing endpoint: sa00_sr\[7\]$_DFF_P_/D, endpoint slack:-9.920198e-11
+      569 |       3 |      42 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+--------------------
+update violating ends at fixEndpointNum 154
+top element of violating ends is: sa11_sr\[1\]$_DFF_P_/D
+--------------------
+      570 |       3 |      42 |       64 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:570, pass:1, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.14981136e-10
+      571 |       3 |      42 |       64 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:571, pass:2, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.1125256e-10
+      572 |       3 |      43 |       64 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:572, pass:3, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.09245946e-10
+      573 |       3 |      44 |       64 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:573, pass:4, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0854806e-10
+      574 |       3 |      45 |       64 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:574, pass:5, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.05669695e-10
+      575 |       3 |      46 |       64 |      7 |    36 |   -0.118 |       -8.2 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:575, pass:6, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.0543688e-10
+      576 |       3 |      46 |       68 |      7 |    36 |   -0.118 |       -8.5 |    157 | sa11_sr\[7\]$_DFF_P_/D
+iter:576, pass:7, current fixing endpoint: sa11_sr\[1\]$_DFF_P_/D, endpoint slack:-1.04001696e-10
+      576 |       3 |      43 |       65 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      577 |       3 |      43 |       65 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:577, pass:1, current fixing endpoint: sa11_sr\[7\]$_DFF_P_/D, endpoint slack:-1.1472723e-10
+      577 |       3 |      43 |       65 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+      578 |       3 |      43 |       65 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+iter:578, pass:1, current fixing endpoint: sa32_sr\[3\]$_DFF_P_/D, endpoint slack:-1.1043577e-10
+      578 |       3 |      43 |       65 |      6 |    36 |   -0.115 |       -8.2 |    157 | sa11_sr\[1\]$_DFF_P_/D
+    final |       3 |      43 |       65 |      6 |    36 |   -0.115 |       -8.2 |    155 | sa11_sr\[1\]$_DFF_P_/D
+---------------------------------------------------------------------------------------------------
+[INFO RSZ-0059] Removed 3 buffers.
+[INFO RSZ-0040] Inserted 10 buffers.
+[INFO RSZ-0041] Resized 43 instances.
+[INFO RSZ-0043] Swapped pins on 36 instances.
+[INFO RSZ-0049] Cloned 6 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+Placement Analysis
+---------------------------------
+total displacement        147.3 u
+average displacement        0.0 u
+max displacement            4.9 u
+original HPWL          241552.5 u
+legalized HPWL         241680.1 u
+delta HPWL                    0 %
+
+Repair antennas...
+[WARNING GRT-0246] No diode with LEF class CORE ANTENNACELL found.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Estimate parasitics...
+Report metrics stage 5, global route...
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 27385 u^2 52% utilization.
+[INFO FLW-0007] clock clk period 0.820000
+[INFO FLW-0008] Clock clk period 0.891
+[INFO FLW-0009] Clock clk slack -0.117
+[INFO FLW-0011] Path endpoint count 1499
+Elapsed time: 1:33.77[h:]min:sec. CPU time: user 121.98 sys 0.21 (130%). Peak memory: 603672KB.
